@@ -33,18 +33,9 @@
             serif: ["Cormorant Garamond", "serif"],
             sans: ["Inter", "sans-serif"],
           },
-          animation: {
-            "fade-in-up": "fadeInUp 1.2s ease-out forwards",
-            "fade-in-up-1": "fadeInUp 1.2s ease-out 0.2s forwards",
-            "fade-in-up-2": "fadeInUp 1.2s ease-out 0.4s forwards",
-            "fade-in-up-3": "fadeInUp 1.2s ease-out 0.6s forwards",
-            "spin-slow": "spin 12s linear infinite",
-          },
-          keyframes: {
-            fadeInUp: {
-              "0%": { opacity: 0, transform: "translateY(20px)" },
-              "100%": { opacity: 1, transform: "translateY(0)" },
-            },
+          borderRadius: {
+            DEFAULT: "4px",
+            md: "6px",
           },
         },
       },
@@ -63,6 +54,7 @@
       overflow: hidden;
       mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+      background: #f5f0e9;
     }
     .hero video {
       position: absolute;
@@ -71,18 +63,11 @@
       height: 100%;
       object-fit: cover;
     }
-    .hero-fallback {
-      position: absolute;
-      inset: 0;
-      background: url("./assets/img/sfeerbeeld.jpg") center/cover no-repeat;
-    }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.12);
-    }
-    .opacity-init {
-      opacity: 0;
+      background: rgba(0, 0, 0, 0.12);
+      pointer-events: none;
     }
   </style>
 </head>
@@ -91,9 +76,7 @@
 
   <!-- HERO -->
   <section class="hero w-full">
-    <div class="hero-fallback"></div>
-
-    <video autoplay muted loop playsinline preload="metadata" poster="./assets/img/sfeerbeeld.jpg">
+    <video autoplay muted loop playsinline preload="metadata">
       <source src="./assets/video/video-tib-terra.mp4" type="video/mp4" />
     </video>
 
@@ -103,32 +86,32 @@
       <img
         src="./assets/img/logo-tib-terra.svg"
         alt="Tib & Terra logo"
-        class="w-56 sm:w-72 opacity-init animate-fade-in-up"
+        class="w-56 sm:w-72 drop-shadow-xl"
       />
     </div>
   </section>
 
   <!-- CONTENT -->
   <main class="-mt-32 z-10 max-w-md w-full px-6 space-y-10 text-center">
-
     <header class="space-y-4">
-      <h1 class="font-serif text-4xl sm:text-5xl leading-tight opacity-init animate-fade-in-up-1">
+      <h1 class="font-serif text-4xl sm:text-5xl leading-tight">
         Natuurlijke verzorgingsrituelen voor lichaam en rust
       </h1>
-      <p class="font-light opacity-init animate-fade-in-up-2">
+      <p class="font-light">
         Zuivere ingrediënten en bewust leven, diep geworteld in traditie en natuur.
         Ontdek de kracht van vertraging.
       </p>
     </header>
 
     <!-- INCENTIVES -->
-    <section class="space-y-4 opacity-init animate-fade-in-up-2">
+    <section class="space-y-4">
       <div class="border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
         <h3 class="font-serif text-xl text-primary mb-1">Exclusieve toegang</h3>
         <p class="text-sm font-light">
           Schrijf je in en ontvang als eerste toegang tot de collectie bij launch.
         </p>
       </div>
+
       <div class="border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
         <h3 class="font-serif text-xl text-primary mb-1">Win de collectie</h3>
         <p class="text-sm font-light">
@@ -138,7 +121,7 @@
     </section>
 
     <!-- FORM -->
-    <form class="space-y-4 opacity-init animate-fade-in-up-3" onsubmit="event.preventDefault();">
+    <form class="space-y-4 pt-2" onsubmit="event.preventDefault();">
       <input
         type="email"
         placeholder="Je e-mailadres"
@@ -154,17 +137,16 @@
     </form>
 
     <!-- FOOTER -->
-    <footer class="pt-16 pb-10 space-y-6 opacity-init animate-fade-in-up-3">
+    <footer class="pt-16 pb-10 space-y-4">
       <img
-        src="./assets/img/logo-tib-terra.svg"
-        alt=""
-        class="w-20 mx-auto opacity-80 animate-spin-slow"
+        src="./assets/img/tib-terra-logo-charcoal.png"
+        alt="Tib & Terra"
+        class="w-32 mx-auto opacity-90"
       />
       <p class="text-[10px] tracking-[0.25em] uppercase opacity-70">
-        Guided by faith, led by nature
+        GUIDED BY FAITH, LED BY NATURE
       </p>
     </footer>
-
   </main>
 
 </body>

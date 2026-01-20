@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html lang="nl"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Tib &amp; Terra - Natuurlijke verzorgingsrituelen</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tib & Terra - Natuurlijke verzorgingsrituelen</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             colors: {
-              primary: "#6B7050", // Olive green
-              "primary-hover": "#565a40",
-              "background-light": "#F5F0E9", // Sand/beige
+              primary: "#6B7050",
+              "primary-hover": "#565A40",
+              "background-light": "#F5F0E9",
               "background-dark": "#1A1915",
               "text-light": "#3E3C38",
               "text-dark": "#E6E2D6",
@@ -24,162 +34,232 @@
               "input-border-dark": "#504E48",
             },
             fontFamily: {
-              serif: ["'Cormorant Garamond'", "serif"],
-              sans: ["'Inter'", "sans-serif"],
+              serif: ["Cormorant Garamond", "serif"],
+              sans: ["Inter", "sans-serif"],
             },
             borderRadius: {
               DEFAULT: "4px",
-              'md': '6px',
+              md: "6px",
             },
             animation: {
-              'fade-in-up': 'fadeInUp 1.2s ease-out forwards',
-              'fade-in-up-delay-1': 'fadeInUp 1.2s ease-out 0.2s forwards',
-              'fade-in-up-delay-2': 'fadeInUp 1.2s ease-out 0.4s forwards',
-              'fade-in-up-delay-3': 'fadeInUp 1.2s ease-out 0.6s forwards',
-              'fade-in-up-delay-4': 'fadeInUp 1.2s ease-out 0.8s forwards',
-              'spin-slow': 'spin 12s linear infinite',
+              "fade-in-up": "fadeInUp 1.2s ease-out forwards",
+              "fade-in-up-delay-1": "fadeInUp 1.2s ease-out 0.2s forwards",
+              "fade-in-up-delay-2": "fadeInUp 1.2s ease-out 0.4s forwards",
+              "fade-in-up-delay-3": "fadeInUp 1.2s ease-out 0.6s forwards",
+              "fade-in-up-delay-4": "fadeInUp 1.2s ease-out 0.8s forwards",
+              "spin-slow": "spin 12s linear infinite",
             },
             keyframes: {
               fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
-            }
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
           },
         },
       };
     </script>
-<style>
+
+    <style>
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        min-height: max(884px, 100dvh);
       }
+
       .opacity-0-init {
         opacity: 0;
       }
+
       .hero-video-container {
         position: relative;
-        height: 92vh;width: 100%;
-        overflow: hidden;mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        height: 92vh;
+        width: 100%;
+        overflow: hidden;
+        background: #f5f0e9;
+        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
       }
-      .hero-video-container video {
+
+      .hero-video-overlay {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.12);
+        pointer-events: none;
+      }
+
+      .hero-video-fallback {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-image: url("assets/img/sfeerbeeld.jpg");
+        filter: saturate(0.95);
+      }
+
+      .hero-youtube {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        border: 0;
+        pointer-events: none;
+        transform: scale(1.15);
       }
+
       .incentive-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       .incentive-card:hover {
         transform: translateY(-2px);
-      }.material-symbols-outlined {
+      }
+
+      .material-symbols-outlined {
         font-variation-settings:
-        'FILL' 0,
-        'wght' 200,
-        'GRAD' 0,
-        'opsz' 24
+          "FILL" 0,
+          "wght" 200,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-youtube {
+          display: none;
+        }
       }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex flex-col items-center transition-colors duration-300">
-<div class="hero-video-container mb-0">
-<video autoplay="" loop="" muted="" playsinline="" poster="/assets/img/sfeerbeeld.jpg">
-<source src="https://www.youtube.com/watch?v=MdG4FSqfzE8" type="video/mp4"/>
-        Your browser does not support the video tag.
-    </video>
-<div class="absolute inset-0 bg-black/10"></div>
-<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 opacity-0-init animate-fade-in-up">
-<img alt="tib &amp; terra logo" class="w-full h-auto drop-shadow-xl invert dark:invert-0 brightness-0 dark:brightness-100" src="/assets/img/Logo tib & terra.png"/>
-</div>
-</div>
-<div class="max-w-md w-full mx-auto px-6 pb-12 space-y-10 -mt-32 relative z-10">
-<div class="space-y-4 text-center">
-<h1 class="font-serif text-4xl sm:text-5xl leading-tight text-text-light dark:text-text-dark opacity-0-init animate-fade-in-up-delay-1 font-medium drop-shadow-sm mix-blend-hard-light dark:mix-blend-normal">
-            Natuurlijke verzorgingsrituelen voor lichaam en rust
+
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex flex-col items-center transition-colors duration-300"
+  >
+    <div class="hero-video-container mb-0">
+      <div class="hero-video-fallback" aria-hidden="true"></div>
+
+      <!-- YouTube background embed -->
+      <!-- Let op: dit is embed, geen mp4. Werkt op Pages. -->
+      <iframe
+        class="hero-youtube"
+        title="Tib & Terra sfeer video"
+        src="https://www.youtube-nocookie.com/embed/MdG4FSqfzE8?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=MdG4FSqfzE8&modestbranding=1&rel=0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+
+      <div class="hero-video-overlay"></div>
+
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 opacity-0-init animate-fade-in-up"
+      >
+        <img
+          alt="tib & terra logo"
+          class="w-full h-auto drop-shadow-xl invert dark:invert-0 brightness-0 dark:brightness-100"
+          src="assets/img/logo-tib-terra.png"
+        />
+      </div>
+    </div>
+
+    <div class="max-w-md w-full mx-auto px-6 pb-12 space-y-10 -mt-32 relative z-10">
+      <div class="space-y-4 text-center">
+        <h1
+          class="font-serif text-4xl sm:text-5xl leading-tight text-text-light dark:text-text-dark opacity-0-init animate-fade-in-up-delay-1 font-medium drop-shadow-sm mix-blend-hard-light dark:mix-blend-normal"
+        >
+          Natuurlijke verzorgingsrituelen voor lichaam en rust
         </h1>
-<p class="font-sans font-light text-base sm:text-lg leading-relaxed text-text-light dark:text-gray-300 opacity-0-init animate-fade-in-up-delay-2 max-w-sm mx-auto drop-shadow-sm">
-            Zuivere ingrediënten en bewust leven, diep geworteld in traditie en natuur. Ontdek de kracht van vertraging.
+
+        <p
+          class="font-sans font-light text-base sm:text-lg leading-relaxed text-text-light dark:text-gray-300 opacity-0-init animate-fade-in-up-delay-2 max-w-sm mx-auto drop-shadow-sm"
+        >
+          Zuivere ingrediënten en bewust leven, diep geworteld in traditie en natuur. Ontdek de kracht van vertraging.
         </p>
-</div>
-<div class="grid grid-cols-1 gap-5 opacity-0-init animate-fade-in-up-delay-2">
-<div class="incentive-card bg-white/60 dark:bg-white/5 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5">
-<span class="material-symbols-outlined text-primary text-3xl">key</span>
-<div>
-<h3 class="font-serif text-xl font-medium text-primary dark:text-[#A4AC82] mb-1">Exclusieve Toegang</h3>
-<p class="font-sans text-sm text-text-light dark:text-gray-400 font-light leading-relaxed">
-                    Schrijf je in en krijg als eerste toegang tot onze gelimiteerde collectie.
-                </p>
-</div>
-</div>
-<div class="incentive-card bg-white/60 dark:bg-white/5 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5">
-<span class="material-symbols-outlined text-primary text-3xl">redeem</span>
-<div>
-<h3 class="font-serif text-xl font-medium text-primary dark:text-[#A4AC82] mb-1">Win de Collectie</h3>
-<p class="font-sans text-sm text-text-light dark:text-gray-400 font-light leading-relaxed">
-                     Eén van de eerste inschrijvers wint de volledige eerste collectieset.
-                </p>
-</div>
-</div>
-</div>
-<form class="space-y-4 opacity-0-init animate-fade-in-up-delay-3 pt-2" onsubmit="event.preventDefault();">
-<div>
-<label class="sr-only" for="email">Email address</label>
-<input class="block w-full rounded-md border-input-border-light dark:border-input-border-dark bg-white/40 dark:bg-white/5 px-4 py-3.5 text-text-light dark:text-text-dark placeholder-gray-500 focus:border-primary focus:ring-primary sm:text-sm font-sans backdrop-blur-sm transition-all" id="email" name="email" placeholder="Je e-mailadres" required="" type="email"/>
-</div>
-<button class="w-full rounded-md bg-primary hover:bg-primary-hover px-4 py-4 text-white shadow-md hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200 font-sans font-medium tracking-wide text-sm uppercase" type="submit">
-            Ontvang early access
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 opacity-0-init animate-fade-in-up-delay-2">
+        <div
+          class="incentive-card bg-white/60 dark:bg-white/5 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5"
+        >
+          <span class="material-symbols-outlined text-primary text-3xl">key</span>
+          <div>
+            <h3 class="font-serif text-xl font-medium text-primary dark:text-[#A4AC82] mb-1">Exclusieve Toegang</h3>
+            <p class="font-sans text-sm text-text-light dark:text-gray-400 font-light leading-relaxed">
+              Schrijf je in en krijg als eerste toegang tot onze collectie bij launch.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="incentive-card bg-white/60 dark:bg-white/5 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5"
+        >
+          <span class="material-symbols-outlined text-primary text-3xl">redeem</span>
+          <div>
+            <h3 class="font-serif text-xl font-medium text-primary dark:text-[#A4AC82] mb-1">Win de Collectie</h3>
+            <p class="font-sans text-sm text-text-light dark:text-gray-400 font-light leading-relaxed">
+              Eén van de eerste inschrijvers wint de volledige eerste collectieset.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <form class="space-y-4 opacity-0-init animate-fade-in-up-delay-3 pt-2" onsubmit="event.preventDefault();">
+        <div>
+          <label class="sr-only" for="email">Email address</label>
+          <input
+            class="block w-full rounded-md border-input-border-light dark:border-input-border-dark bg-white/40 dark:bg-white/5 px-4 py-3.5 text-text-light dark:text-text-dark placeholder-gray-500 focus:border-primary focus:ring-primary sm:text-sm font-sans backdrop-blur-sm transition-all"
+            id="email"
+            name="email"
+            placeholder="Je e-mailadres"
+            required
+            type="email"
+          />
+        </div>
+
+        <button
+          class="w-full rounded-md bg-primary hover:bg-primary-hover px-4 py-4 text-white shadow-md hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200 font-sans font-medium tracking-wide text-sm uppercase"
+          type="submit"
+        >
+          Ontvang early access
         </button>
-</form>
-<div class="grid grid-cols-3 gap-6 pt-10 border-t border-primary/10 opacity-0-init animate-fade-in-up-delay-4">
-<div class="flex flex-col items-center text-center space-y-3 group">
-<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary text-3xl">spa</span>
-</div>
-<p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
-                Ambachtelijk<br/>ontwikkeld
-            </p>
-</div>
-<div class="flex flex-col items-center text-center space-y-3 group">
-<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary text-3xl">volunteer_activism</span>
-</div>
-<p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
-                Met zorg<br/>geproduceerd
-            </p>
-</div>
-<div class="flex flex-col items-center text-center space-y-3 group">
-<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary text-3xl">history_edu</span>
-</div>
-<p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
-                Ritueel &amp;<br/>Herkomst
-            </p>
-</div>
-</div>
-<div class="pt-20 pb-10 flex flex-col items-center space-y-8 opacity-0-init animate-fade-in-up-delay-4">
-<img alt="tib &amp; terra emblem" class="w-20 h-20 opacity-90 brightness-0 dark:invert animate-spin-slow" src="/assets/img/Logo tib & terra.png"/>
-<p class="text-[10px] uppercase tracking-[0.25em] font-sans text-text-light/70 dark:text-gray-500 text-center">
-            GUIDED BY FAITH, LED BY NATURE
+      </form>
+
+      <div class="grid grid-cols-3 gap-6 pt-10 border-t border-primary/10 opacity-0-init animate-fade-in-up-delay-4">
+        <div class="flex flex-col items-center text-center space-y-3 group">
+          <div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-primary text-3xl">spa</span>
+          </div>
+          <p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
+            Ambachtelijk<br />ontwikkeld
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center text-center space-y-3 group">
+          <div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-primary text-3xl">volunteer_activism</span>
+          </div>
+          <p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
+            Met zorg<br />geproduceerd
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center text-center space-y-3 group">
+          <div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-primary text-3xl">history_edu</span>
+          </div>
+          <p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
+            Ritueel &<br />Herkomst
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-20 pb-10 flex flex-col items-center space-y-8 opacity-0-init animate-fade-in-up-delay-4">
+        <img
+          alt="tib & terra emblem"
+          class="w-20 h-20 opacity-90 brightness-0 dark:invert animate-spin-slow"
+          src="assets/img/logo-tib-terra.png"
+        />
+        <p class="text-[10px] uppercase tracking-[0.25em] font-sans text-text-light/70 dark:text-gray-500 text-center">
+          GUIDED BY FAITH, LED BY NATURE
         </p>
-</div>
-</div>
-</body></html>
+      </div>
+    </div>
+  </body>
+</html>

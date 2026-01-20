@@ -2,7 +2,7 @@
 <html lang="nl">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tib & Terra - Natuurlijke verzorgingsrituelen</title>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
@@ -81,19 +81,12 @@
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
       }
 
-      .hero-video-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.12);
-        pointer-events: none;
-      }
-
       .hero-video-fallback {
         position: absolute;
         inset: 0;
         background-size: cover;
         background-position: center;
-        background-image: url("assets/img/sfeerbeeld.jpg");
+        background-image: url("./assets/img/sfeerbeeld.jpg");
         filter: saturate(0.95);
       }
 
@@ -107,6 +100,13 @@
         transform: scale(1.15);
       }
 
+      .hero-video-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.12);
+        pointer-events: none;
+      }
+
       .incentive-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
@@ -115,11 +115,7 @@
       }
 
       .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 200,
-          "GRAD" 0,
-          "opsz" 24;
+        font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -130,14 +126,10 @@
     </style>
   </head>
 
-  <body
-    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex flex-col items-center transition-colors duration-300"
-  >
+  <body class="bg-background-light text-text-light min-h-screen flex flex-col items-center transition-colors duration-300">
     <div class="hero-video-container mb-0">
       <div class="hero-video-fallback" aria-hidden="true"></div>
 
-      <!-- YouTube background embed -->
-      <!-- Let op: dit is embed, geen mp4. Werkt op Pages. -->
       <iframe
         class="hero-youtube"
         title="Tib & Terra sfeer video"
@@ -148,52 +140,41 @@
 
       <div class="hero-video-overlay"></div>
 
-      <div
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 opacity-0-init animate-fade-in-up"
-      >
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 opacity-0-init animate-fade-in-up">
         <img
           alt="tib & terra logo"
-          class="w-full h-auto drop-shadow-xl invert dark:invert-0 brightness-0 dark:brightness-100"
-          src="assets/img/logo-tib-terra.png"
+          class="w-full h-auto drop-shadow-xl"
+          src="./assets/img/logo-tib-terra.png"
         />
       </div>
     </div>
 
     <div class="max-w-md w-full mx-auto px-6 pb-12 space-y-10 -mt-32 relative z-10">
       <div class="space-y-4 text-center">
-        <h1
-          class="font-serif text-4xl sm:text-5xl leading-tight text-text-light dark:text-text-dark opacity-0-init animate-fade-in-up-delay-1 font-medium drop-shadow-sm mix-blend-hard-light dark:mix-blend-normal"
-        >
+        <h1 class="font-serif text-4xl sm:text-5xl leading-tight opacity-0-init animate-fade-in-up-delay-1 font-medium drop-shadow-sm">
           Natuurlijke verzorgingsrituelen voor lichaam en rust
         </h1>
-
-        <p
-          class="font-sans font-light text-base sm:text-lg leading-relaxed text-text-light dark:text-gray-300 opacity-0-init animate-fade-in-up-delay-2 max-w-sm mx-auto drop-shadow-sm"
-        >
+        <p class="font-sans font-light text-base sm:text-lg leading-relaxed opacity-0-init animate-fade-in-up-delay-2 max-w-sm mx-auto drop-shadow-sm">
           Zuivere ingrediënten en bewust leven, diep geworteld in traditie en natuur. Ontdek de kracht van vertraging.
         </p>
       </div>
 
       <div class="grid grid-cols-1 gap-5 opacity-0-init animate-fade-in-up-delay-2">
-        <div
-          class="incentive-card bg-white/60 dark:bg-white/5 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5"
-        >
+        <div class="incentive-card bg-white/60 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5">
           <span class="material-symbols-outlined text-primary text-3xl">key</span>
           <div>
-            <h3 class="font-serif text-xl font-medium text-primary dark:text-[#A4AC82] mb-1">Exclusieve Toegang</h3>
-            <p class="font-sans text-sm text-text-light dark:text-gray-400 font-light leading-relaxed">
+            <h3 class="font-serif text-xl font-medium text-primary mb-1">Exclusieve Toegang</h3>
+            <p class="font-sans text-sm font-light leading-relaxed">
               Schrijf je in en krijg als eerste toegang tot onze collectie bij launch.
             </p>
           </div>
         </div>
 
-        <div
-          class="incentive-card bg-white/60 dark:bg-white/5 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5"
-        >
+        <div class="incentive-card bg-white/60 border border-primary/20 p-6 rounded-md backdrop-blur-md shadow-sm flex items-start gap-5">
           <span class="material-symbols-outlined text-primary text-3xl">redeem</span>
           <div>
-            <h3 class="font-serif text-xl font-medium text-primary dark:text-[#A4AC82] mb-1">Win de Collectie</h3>
-            <p class="font-sans text-sm text-text-light dark:text-gray-400 font-light leading-relaxed">
+            <h3 class="font-serif text-xl font-medium text-primary mb-1">Win de Collectie</h3>
+            <p class="font-sans text-sm font-light leading-relaxed">
               Eén van de eerste inschrijvers wint de volledige eerste collectieset.
             </p>
           </div>
@@ -204,7 +185,7 @@
         <div>
           <label class="sr-only" for="email">Email address</label>
           <input
-            class="block w-full rounded-md border-input-border-light dark:border-input-border-dark bg-white/40 dark:bg-white/5 px-4 py-3.5 text-text-light dark:text-text-dark placeholder-gray-500 focus:border-primary focus:ring-primary sm:text-sm font-sans backdrop-blur-sm transition-all"
+            class="block w-full rounded-md border border-input-border-light bg-white/40 px-4 py-3.5 placeholder-gray-500 focus:border-primary focus:ring-primary sm:text-sm font-sans backdrop-blur-sm transition-all"
             id="email"
             name="email"
             placeholder="Je e-mailadres"
@@ -212,7 +193,6 @@
             type="email"
           />
         </div>
-
         <button
           class="w-full rounded-md bg-primary hover:bg-primary-hover px-4 py-4 text-white shadow-md hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200 font-sans font-medium tracking-wide text-sm uppercase"
           type="submit"
@@ -221,42 +201,13 @@
         </button>
       </form>
 
-      <div class="grid grid-cols-3 gap-6 pt-10 border-t border-primary/10 opacity-0-init animate-fade-in-up-delay-4">
-        <div class="flex flex-col items-center text-center space-y-3 group">
-          <div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-            <span class="material-symbols-outlined text-primary text-3xl">spa</span>
-          </div>
-          <p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
-            Ambachtelijk<br />ontwikkeld
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center text-center space-y-3 group">
-          <div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-            <span class="material-symbols-outlined text-primary text-3xl">volunteer_activism</span>
-          </div>
-          <p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
-            Met zorg<br />geproduceerd
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center text-center space-y-3 group">
-          <div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-            <span class="material-symbols-outlined text-primary text-3xl">history_edu</span>
-          </div>
-          <p class="text-[10px] sm:text-xs font-sans font-medium tracking-wide uppercase text-text-light dark:text-gray-400 leading-snug">
-            Ritueel &<br />Herkomst
-          </p>
-        </div>
-      </div>
-
       <div class="pt-20 pb-10 flex flex-col items-center space-y-8 opacity-0-init animate-fade-in-up-delay-4">
         <img
           alt="tib & terra emblem"
-          class="w-20 h-20 opacity-90 brightness-0 dark:invert animate-spin-slow"
-          src="assets/img/logo-tib-terra.png"
+          class="w-20 h-20 opacity-90 animate-spin-slow"
+          src="./assets/img/logo-tib-terra.png"
         />
-        <p class="text-[10px] uppercase tracking-[0.25em] font-sans text-text-light/70 dark:text-gray-500 text-center">
+        <p class="text-[10px] uppercase tracking-[0.25em] font-sans text-text-light/70 text-center">
           GUIDED BY FAITH, LED BY NATURE
         </p>
       </div>

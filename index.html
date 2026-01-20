@@ -33,10 +33,6 @@
             serif: ["Cormorant Garamond", "serif"],
             sans: ["Inter", "sans-serif"],
           },
-          borderRadius: {
-            DEFAULT: "4px",
-            md: "6px",
-          },
         },
       },
     };
@@ -48,6 +44,7 @@
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
     }
+
     .hero {
       position: relative;
       height: 92vh;
@@ -56,6 +53,7 @@
       -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
       background: #f5f0e9;
     }
+
     .hero video {
       position: absolute;
       inset: 0;
@@ -63,18 +61,32 @@
       height: 100%;
       object-fit: cover;
     }
+
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.12);
       pointer-events: none;
     }
+
+    .incentive-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .incentive-card:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .incentive-card {
+        transition: none;
+      }
+    }
   </style>
 </head>
 
 <body class="flex flex-col items-center text-text font-sans">
 
-  <!-- HERO -->
   <section class="hero w-full">
     <video autoplay muted loop playsinline preload="metadata">
       <source src="./assets/video/video-tib-terra.mp4" type="video/mp4" />
@@ -91,36 +103,54 @@
     </div>
   </section>
 
-  <!-- CONTENT -->
   <main class="-mt-32 z-10 max-w-md w-full px-6 space-y-10 text-center">
-    <header class="space-y-4">
-      <h1 class="font-serif text-4xl sm:text-5xl leading-tight">
+
+    <header class="space-y-5">
+      <h1 class="font-serif text-4xl sm:text-5xl leading-tight font-medium">
         Natuurlijke verzorgingsrituelen voor lichaam en rust
       </h1>
-      <p class="font-light">
-        Zuivere ingrediënten en bewust leven, diep geworteld in traditie en natuur.
-        Ontdek de kracht van vertraging.
+
+      <p class="font-light leading-relaxed">
+        Tib & Terra brengt natuurlijke verzorging terug naar de essentie.
+        Zuiver in ingrediënten, transparant in herkomst en gemaakt met aandacht voor betekenis.
       </p>
+
+      <p class="font-light leading-relaxed">
+        We bouwen aan een plek voor natuurlijke gezondheid, gedragen door geloof, kwaliteit en gemeenschap.
+      </p>
+
+      <div class="pt-2 text-sm font-sans text-text/75">
+        Launch eind februari.
+        Schrijf je in en krijg als eerste toegang plus extras bij launch.
+      </div>
     </header>
 
-    <!-- INCENTIVES -->
     <section class="space-y-4">
-      <div class="border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
-        <h3 class="font-serif text-xl text-primary mb-1">Exclusieve toegang</h3>
-        <p class="text-sm font-light">
-          Schrijf je in en ontvang als eerste toegang tot de collectie bij launch.
-        </p>
+      <div class="incentive-card border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
+        <div class="flex items-start gap-4 text-left">
+          <span class="material-symbols-outlined text-primary text-3xl">key</span>
+          <div>
+            <h3 class="font-serif text-xl text-primary mb-1">Exclusieve toegang</h3>
+            <p class="text-sm font-light">
+              Schrijf je in en ontvang als eerste toegang tot de collectie bij launch.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div class="border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
-        <h3 class="font-serif text-xl text-primary mb-1">Win de collectie</h3>
-        <p class="text-sm font-light">
-          Eén van de eerste inschrijvers wint de volledige eerste collectieset.
-        </p>
+      <div class="incentive-card border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
+        <div class="flex items-start gap-4 text-left">
+          <span class="material-symbols-outlined text-primary text-3xl">redeem</span>
+          <div>
+            <h3 class="font-serif text-xl text-primary mb-1">Win de collectie</h3>
+            <p class="text-sm font-light">
+              Eén van de eerste inschrijvers wint de volledige eerste collectieset.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- FORM -->
     <form class="space-y-4 pt-2" onsubmit="event.preventDefault();">
       <input
         type="email"
@@ -130,20 +160,35 @@
       />
       <button
         type="submit"
-        class="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded uppercase tracking-wide text-sm"
+        class="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded uppercase tracking-wide text-sm font-medium"
       >
         Ontvang early access
       </button>
     </form>
 
- <!-- FOOTER -->
-<footer class="pt-28 pb-20 text-center">
-  <img
-    src="./assets/img/tib-terra-logo-tageline.png"
-    alt="Tib & Terra – Guided by Faith, Led by Nature"
-    class="mx-auto w-[300px] sm:w-[380px] md:w-[460px]"
-  />
-</footer>
+    <footer class="pt-20 pb-16 space-y-10 text-center">
+      <div>
+        <img
+          src="./assets/img/tib-terra-logo-tageline.png"
+          alt="Tib & Terra"
+          class="mx-auto w-[300px] sm:w-[380px] md:w-[460px]"
+        />
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-sm font-sans text-text/80">
+          Volg ons op social
+        </p>
+
+        <div class="flex items-center justify-center gap-5 text-sm">
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">Instagram</a>
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">Facebook</a>
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">YouTube</a>
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
 </body>

@@ -1,3 +1,202 @@
+Tib en terra splash
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tib & Terra – Natuurlijke verzorgingsrituelen</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6B7050",
+            "primary-hover": "#565A40",
+            background: "#F5F0E9",
+            text: "#3E3C38",
+            border: "#8C8880",
+          },
+          fontFamily: {
+            serif: ["Cormorant Garamond", "serif"],
+            sans: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background: #f5f0e9;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      height: 92vh;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+      background: #f5f0e9;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.12);
+      pointer-events: none;
+    }
+
+    .incentive-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .incentive-card:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .incentive-card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="flex flex-col items-center text-text font-sans">
+
+  <section class="hero w-full">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="./assets/video/video-tib-terra.mp4" type="video/mp4" />
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="absolute inset-0 flex items-center justify-center">
+      <img
+        src="./assets/img/logo-tib-terra.svg"
+        alt="Tib & Terra logo"
+        class="w-56 sm:w-72 drop-shadow-xl"
+      />
+    </div>
+  </section>
+
+  <main class="-mt-32 z-10 max-w-md w-full px-6 space-y-10 text-center">
+
+    <header class="space-y-5">
+      <h1 class="font-serif text-4xl sm:text-5xl leading-tight font-medium">
+        Natuurlijke verzorgingsrituelen voor lichaam en rust
+      </h1>
+
+      <p class="font-light leading-relaxed">
+        Tib & Terra brengt natuurlijke verzorging terug naar de essentie.
+        Zuiver in ingrediënten, transparant in herkomst en gemaakt met aandacht voor betekenis.
+      </p>
+
+      <p class="font-light leading-relaxed">
+        We bouwen aan een plek voor natuurlijke gezondheid, gedragen door geloof, kwaliteit en gemeenschap.
+      </p>
+
+      <div class="pt-2 text-sm font-sans text-text/75">
+        Schrijf je in en krijg als eerste toegang plus extra's bij launch eind februari.
+      </div>
+    </header>
+
+    <section class="space-y-4">
+      <div class="incentive-card border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
+        <div class="flex items-start gap-4 text-left">
+          <span class="material-symbols-outlined text-primary text-3xl">key</span>
+          <div>
+            <h3 class="font-serif text-xl text-primary mb-1">Exclusieve toegang</h3>
+            <p class="text-sm font-light">
+              Schrijf je in en ontvang als eerste toegang en extra korting tot de collectie bij launch.
+            </p>
+          </div>
+</div>
+<div class="space-y-4">
+<div class="overflow-hidden rounded-md shadow-lg border border-primary/10">
+<img alt="Tib &amp; Terra Verwenpakket" class="w-full h-auto object-cover block" src="./assets/img/Verwenpakket-tib-terra.png"/>
+</div>
+
+      <div class="incentive-card border border-border/40 bg-white/60 backdrop-blur p-5 rounded">
+        <div class="flex items-start gap-4 text-left">
+          <span class="material-symbols-outlined text-primary text-3xl">redeem</span>
+          <div>
+            <h3 class="font-serif text-xl text-primary mb-1">Win een moment van rust</h3>
+            <p class="text-sm font-light">
+              Eén van de eerste inschrijvers ontvangt een volledig verzorgd Tib & Terra verwenpakket.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <form class="space-y-4 pt-2" onsubmit="event.preventDefault();">
+      <input
+        type="email"
+        placeholder="Je e-mailadres"
+        required
+        class="w-full px-4 py-3 rounded border border-border bg-white/60 focus:outline-none focus:border-primary"
+      />
+      <button
+        type="submit"
+        class="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded uppercase tracking-wide text-sm font-medium"
+      >
+        Ontvang early access
+      </button>
+    </form>
+
+    <footer class="pt-20 pb-16 space-y-10 text-center">
+      <div>
+        <img
+          src="./assets/img/tib-terra-logo-tageline.png"
+          alt="Tib & Terra"
+          class="mx-auto w-[300px] sm:w-[380px] md:w-[460px]"
+        />
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-sm font-sans text-text/80">
+          Volg ons op onze socials
+        </p>
+
+        <div class="flex items-center justify-center gap-5 text-sm">
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">Instagram</a>
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">Facebook</a>
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">YouTube</a>
+          <a class="text-text/80 hover:text-text underline underline-offset-4" href="#" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
